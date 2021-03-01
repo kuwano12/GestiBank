@@ -7,13 +7,14 @@
     tools:context=".ConversionActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnConvertTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="146dp"
         android:layout_marginLeft="146dp"
         android:layout_marginTop="580dp"
         android:layout_marginBottom="103dp"
+        android:onClick="getConvertedValue"
         android:text="Convertir"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,13 +52,10 @@
                 android:text="Devise"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 
@@ -78,7 +76,7 @@
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/editValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -101,11 +99,12 @@
                 android:text="Résultat"
                 android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/editTextTextPersonName3"
+            <TextView
+                android:id="@+id/editResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:clickable="false"
                 android:ems="10"
                 android:inputType="textPersonName" />
         </LinearLayout>

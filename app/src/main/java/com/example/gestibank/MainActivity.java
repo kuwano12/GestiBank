@@ -24,4 +24,12 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(getApplicationContext(), AuthActivity.class);
         startActivity(i);
     }
+    public void goToCreateAccountPage(View v){
+        Intent i = new Intent(getApplicationContext(), AdClientActivity.class);
+        startActivity(i);
+    }
+    public void gotToConversionPage(View v){
+        Intent i = new Intent(getApplicationContext(), ConversionActivity.class);
+        startActivity(i);
+    }
 }
