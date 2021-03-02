@@ -56,7 +56,9 @@ public class ConversionActivity extends AppCompatActivity {
 //                    ArrayAdapter adapter = new ArrayAdapter(ConversionActivity.this,
 //                            android.R.layout.simple_list_item_1, list.getRates().keySet().toArray());
 //                    spinner.setAdapter(adapter);
-                    ArrayAdapter adapter2 = new ArrayAdapter(ConversionActivity.this, android.R.layout.simple_dropdown_item_1line, list.getRates().keySet().toArray());
+                    ArrayAdapter adapter2 = new ArrayAdapter(ConversionActivity.this,
+                            android.R.layout.simple_dropdown_item_1line,
+                            list.getRates().keySet().toArray());
                     textView = (AutoCompleteTextView) findViewById(R.id.listDevise);
                     textView.setThreshold(0);
 

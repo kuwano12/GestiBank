@@ -5,13 +5,18 @@ public class Client {
     public String firstname;
     public String phoneNumb;
     public String email;
+    public String login;
+    public String password;
 
     public Client(){}
-    public Client(String name, String firstname, String phoneNumb, String email) {
+
+    public Client(String name, String firstname, String phoneNumb, String email, String login, String password) {
         this.name = name;
         this.firstname = firstname;
         this.phoneNumb = phoneNumb;
         this.email = email;
+        this.login = login;
+        this.password = password;
     }
 
     public String getName() {
@@ -46,6 +51,22 @@ public class Client {
         this.email = email;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
@@ -53,6 +74,8 @@ public class Client {
                 ", firstname='" + firstname + '\'' +
                 ", phoneNumb='" + phoneNumb + '\'' +
                 ", email='" + email + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
