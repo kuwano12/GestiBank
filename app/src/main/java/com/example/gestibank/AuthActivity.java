@@ -48,10 +48,10 @@ public class AuthActivity extends AppCompatActivity {
                             , Toast.LENGTH_LONG).show();
                 }
             }
-
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Failure", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Login ou mot de passe incorrecte"
+                        , Toast.LENGTH_LONG).show();
                 Log.i("Error", t.getMessage());
             }
         });
