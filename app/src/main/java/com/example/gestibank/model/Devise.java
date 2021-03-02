@@ -6,10 +6,11 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
 
 public class Devise {
     @SerializedName("rates")
-    private Map<String, Double> rates;
+    private SortedMap<String, Double> rates;
     @SerializedName("base")
     private String base;
     @SerializedName("date")
@@ -32,11 +33,11 @@ public class Devise {
         this.date = date;
     }
 
-    public Map<String, Double> getRates() {
+    public SortedMap<String, Double> getRates() {
         return rates;
     }
 
-    public void setRates(Map<String, Double> rates) {
+    public void setRates(SortedMap<String, Double> rates) {
         this.rates = rates;
     }
 

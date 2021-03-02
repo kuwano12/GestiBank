@@ -52,8 +52,8 @@
                 android:text="Devise"
                 android:textSize="18sp" />
 
-            <Spinner
-                android:id="@+id/spinner"
+            <AutoCompleteTextView
+                android:id="@+id/listDevise"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -106,7 +106,8 @@
                 android:layout_weight="1"
                 android:clickable="false"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
