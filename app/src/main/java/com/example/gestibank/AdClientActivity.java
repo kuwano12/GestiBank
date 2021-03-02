@@ -71,6 +71,9 @@ public class AdClientActivity extends AppCompatActivity {
                     if(response.isSuccessful()){
                         Toast.makeText(AdClientActivity.this, "Compte crée",
                                 Toast.LENGTH_LONG).show();
+                        clearText();
+                        Intent i = new Intent(getApplicationContext(), AuthActivity.class);
+                        startActivity(i);
                     }
                 }
                 @Override
@@ -82,10 +85,18 @@ public class AdClientActivity extends AppCompatActivity {
 
     }
 
-
-
     public void goToAuthFromTxtV(View v){
         Intent i = new Intent(getApplicationContext(), AuthActivity.class);
         startActivity(i);
+    }
+    public void clearText(){
+        name.setText("");
+        firstname.setText("");
+        phone.setText("");
+        mail.setText("");
+        login.setText("");
+        password.setText("");
+        confPass.setText("");
+
     }
 }

@@ -1,12 +1,12 @@
 package com.example.gestibank.model;
 
 public class Client {
-    public String name;
-    public String firstname;
-    public String phoneNumb;
-    public String email;
-    public String login;
-    public String password;
+    private String name;
+    private String firstname;
+    private String phoneNumb;
+    private String email;
+    private String login;
+    private String password;
 
     public Client(){}
 
