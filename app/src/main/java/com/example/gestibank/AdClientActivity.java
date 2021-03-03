@@ -35,9 +35,6 @@ public class AdClientActivity extends AppCompatActivity {
         firstname      = (EditText) findViewById(R.id.editNewClientFirstName);
         phone          = (EditText) findViewById(R.id.editNewClientPhone);
         mail           = (EditText) findViewById(R.id.editNewClientEmail);
-        login          = (EditText) findViewById(R.id.editLogin);
-        password = (EditText) findViewById(R.id.editPassword);
-        confPass = (EditText) findViewById(R.id.editConfPassword);
         btnAddUser = (Button) findViewById(R.id.btnCreateNewUser);
         retrofitInterface = APIUtils.getuserInterface();
     }
@@ -47,10 +44,8 @@ public class AdClientActivity extends AppCompatActivity {
             if(name.getText().toString().trim().length() == 0 ||
                     firstname.getText().toString().trim().length() == 0 ||
                     phone.getText().toString().trim().length() == 0 ||
-                    mail.getText().toString().trim().length() == 0 ||
-                    login.getText().toString().trim().length() == 0 ||
-                    password.getText().toString().trim().length() == 0 ||
-                    confPass.getText().toString().trim().length() == 0
+                    mail.getText().toString().trim().length() == 0
+
             ){
                 Utils.showMessage("Erreur", "Veuillez remplir tous les champs",
                         AdClientActivity.this);

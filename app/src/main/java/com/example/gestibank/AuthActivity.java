@@ -39,6 +39,7 @@ public class AuthActivity extends AppCompatActivity {
         HashMap<String, String> map = new HashMap<>();
         map.put("login", login.getText().toString());
         map.put("password", password.getText().toString());
+        map.put("activated", "t");
         Call<Client> call = retrofitInterface.login(map);
         call.enqueue(new Callback<Client>() {
             @Override
