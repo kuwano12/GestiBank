@@ -7,7 +7,7 @@
     tools:context=".AdClientActivity">
 
     <TextView
-        android:id="@+id/textViewName"
+        android:id="@+id/textAgentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="29dp"

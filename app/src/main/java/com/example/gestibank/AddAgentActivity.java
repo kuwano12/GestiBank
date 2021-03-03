@@ -38,7 +38,6 @@ public class AddAgentActivity extends AppCompatActivity {
         agentMail      = (EditText) findViewById(R.id.editNewAgentEmail);
         btnAddNewAgent = (Button) findViewById(R.id.btnCreateNewAgent);
         retrofitInterface = APIUtils.getuserInterface();
-
     }
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -71,7 +70,7 @@ public class AddAgentActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-
+                    Log.e("ERROR", t.getMessage());
                 }
             });
         }

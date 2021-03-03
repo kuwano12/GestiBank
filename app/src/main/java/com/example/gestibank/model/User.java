@@ -1,6 +1,10 @@
 package com.example.gestibank.model;
 
-public class User {
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
+public class User implements Serializable {
     private String name;
     private String firstname;
     private String phone;
@@ -8,10 +12,12 @@ public class User {
     private String password;
     private String role;
     private String activated;
+    private String agent;
+    private String matricule;
 
     public User(){}
 
-    public User(String name, String firstname, String phone, String mail, String password, String role, String activated) {
+    public User(String name, String firstname, String phone, String mail, String password, String role, String activated, String agent) {
         this.name = name;
         this.firstname = firstname;
         this.phone = phone;
@@ -19,14 +25,26 @@ public class User {
         this.password = password;
         this.role = role;
         this.activated = activated;
+        this.agent = agent;
     }
-    public User(String name, String firstname, String phone, String mail, String role, String activated) {
+    public User(String name, String firstname, String phone, String mail, String role, String activated, String agent) {
         this.name = name;
         this.firstname = firstname;
         this.phone = phone;
         this.mail = mail;
         this.role = role;
         this.activated = activated;
+        this.agent = agent;
+    }
+    public User(String name, String firstname, String phone, String mail, String password, String role, String activated, String agent, String matricule){
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.mail = mail;
+        this.role = role;
+        this.activated = activated;
+        this.agent = agent;
+        this.matricule = matricule;
     }
 
     public String getName() {
@@ -85,9 +103,25 @@ public class User {
         this.activated = activated;
     }
 
+    public String getAgent() {
+        return agent;
+    }
+
+    public void setAgent(String agent) {
+        this.agent = agent;
+    }
+
+    public String getMatricule() {
+        return matricule;
+    }
+
+    public void setMatricule(String matricule) {
+        this.matricule = matricule;
+    }
+
     @Override
     public String toString() {
-        return "Client{" +
+        return
                 "name='" + name + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", phone='" + phone + '\'' +
@@ -95,6 +129,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", role='" + role + '\'' +
                 ", activated='" + activated + '\'' +
-                '}';
+                ", agent='" + agent;
     }
 }

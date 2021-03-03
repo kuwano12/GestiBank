@@ -50,7 +50,7 @@ public class AdClientActivity extends AppCompatActivity {
                 return;
             }
             User c = new User(name.getText().toString(), firstname.getText().toString(),
-                    phone.getText().toString(), mail.getText().toString(), "AGENT", "w");
+                    phone.getText().toString(), mail.getText().toString(), "AGENT", "w", "");
             Call<User> call = retrofitInterface.addClient(c);
             call.enqueue(new Callback<User>() {
                 @Override
@@ -84,6 +84,5 @@ public class AdClientActivity extends AppCompatActivity {
         login.setText("");
         password.setText("");
         confPass.setText("");
-
     }
 }

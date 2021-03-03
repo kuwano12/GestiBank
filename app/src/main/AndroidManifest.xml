@@ -15,7 +15,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GestiBank"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AddAgentActivity"></activity>
+        <activity android:name=".EditAgentActivity"></activity>
+        <activity android:name=".ListDemandActivity" />
+        <activity android:name=".AgentListActivity" />
+        <activity android:name=".AddAgentActivity" />
         <activity android:name=".AdminActivity" />
         <activity android:name=".AuthActivity" />
         <activity android:name=".ConversionActivity" />
