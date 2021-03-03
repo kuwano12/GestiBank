@@ -10,51 +10,65 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.gestibank.model.Client;
+import com.example.gestibank.model.User;
 import com.example.gestibank.remote.APIUtils;
 import com.example.gestibank.remote.RetrofitInterface;
-
-import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AuthActivity extends AppCompatActivity {
-    EditText login, password;
+    EditText mail, password;
     Button btnAuth;
+    User u = new User();
     private RetrofitInterface retrofitInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
-        login = (EditText) findViewById(R.id.editClientLogin);
+        mail = (EditText) findViewById(R.id.editClientMail);
         password = (EditText) findViewById(R.id.editClientPassword);
         btnAuth = (Button) findViewById(R.id.btnConnect);
         retrofitInterface = APIUtils.getuserInterface();
     }
 
     public void Login(View v){
-        HashMap<String, String> map = new HashMap<>();
-        map.put("login", login.getText().toString());
-        map.put("password", password.getText().toString());
-        map.put("activated", "t");
-        Call<Client> call = retrofitInterface.login(map);
-        call.enqueue(new Callback<Client>() {
+        Call<User> call = retrofitInterface.login(mail.getText().toString());
+        call.enqueue(new Callback<User>() {
             @Override
-            public void onResponse(Call<Client> call, Response<Client> response) {
+            public void onResponse(Call<User> call, Response<User> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Connexion réussie"
-                            , Toast.LENGTH_LONG).show();
+                    if(response.body() == null){
+                        Toast.makeText(getApplicationContext(), "Compte n'existe pas"
+                                , Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                    u = response.body();
+
+                    if(u.getActivated().equals("t") && u.getRole().equals("ADMIN")){
+                        Intent i = new Intent(AuthActivity.this, AdminActivity.class);
+                        startActivity(i);
+                    } else if (u.getActivated().equals("t") && u.getRole().equals("AGENT")){
+                        Toast.makeText(getApplicationContext(), "AGENT"
+                                , Toast.LENGTH_LONG).show();
+                    } else if(u.getActivated().equals("t") && u.getRole().equals("CLIENT")){
+                        Toast.makeText(getApplicationContext(), "CLIENT"
+                                , Toast.LENGTH_LONG).show();
+                    }else if(u.getActivated().equals("f")){
+                        Toast.makeText(getApplicationContext(), "Compte en attente d'activation"
+                                , Toast.LENGTH_LONG).show();
+                    }
                 }
             }
             @Override
-            public void onFailure(Call<Client> call, Throwable t) {
+            public void onFailure(Call<User> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "Login ou mot de passe incorrecte"
                         , Toast.LENGTH_LONG).show();
                 Log.i("Error", t.getMessage());
             }
         });
     }
+
 }

@@ -6,4 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".AdminActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="346dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="251dp"
+        android:layout_marginBottom="134dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="44dp">
+
+        <Button
+            android:id="@+id/btnAgentList"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginVertical="20dp"
+            android:text="Liste des agents" />
+
+        <Button
+            android:id="@+id/btnAgentAdd"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:layout_marginVertical="20dp"
+            android:onClick="goToAddAgentForm"
+            android:text="Ajouter un agent" />
+
+        <Button
+            android:id="@+id/btnDemand"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginVertical="20dp"
+            android:text="Consulter les demandes" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

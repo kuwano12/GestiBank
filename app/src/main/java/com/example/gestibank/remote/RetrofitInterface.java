@@ -1,22 +1,21 @@
 package com.example.gestibank.remote;
 
-import com.example.gestibank.model.Client;
+import com.example.gestibank.model.User;
 import com.example.gestibank.model.Devise;
-
-import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface RetrofitInterface {
     @GET("/latest")
     Call<Devise> getDevices();
 
     @POST("/user")
-    Call<Client> addClient(@Body Client client);
+    Call<User> addClient(@Body User user);
 
-    @POST("/login")
-    Call<Client> login(@Body HashMap<String, String>map);
+    @GET("/login/{mail}")
+    Call<User> login(@Path("mail") String mail);
 }
