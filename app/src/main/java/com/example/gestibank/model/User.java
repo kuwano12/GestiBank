@@ -1,7 +1,5 @@
 package com.example.gestibank.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
 public class User implements Serializable {
@@ -41,11 +39,20 @@ public class User implements Serializable {
         this.firstname = firstname;
         this.phone = phone;
         this.mail = mail;
+        this.password = password;
         this.role = role;
         this.activated = activated;
         this.agent = agent;
         this.matricule = matricule;
     }
+
+    public User(String name, String firstname, String phone, String mail) {
+        this.name = name;
+        this.firstname = firstname;
+        this.phone = phone;
+        this.mail = mail;
+    }
+
 
     public String getName() {
         return name;

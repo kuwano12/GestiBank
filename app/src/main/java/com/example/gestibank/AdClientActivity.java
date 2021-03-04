@@ -49,8 +49,13 @@ public class AdClientActivity extends AppCompatActivity {
                         AdClientActivity.this);
                 return;
             }
-            User c = new User(name.getText().toString(), firstname.getText().toString(),
-                    phone.getText().toString(), mail.getText().toString(), "AGENT", "w", "");
+            User c = new User(name.getText().toString(),
+                    firstname.getText().toString(),
+                    phone.getText().toString(),
+                    mail.getText().toString(),
+                    "CLIENT",
+                    "w",
+                    "");
             Call<User> call = retrofitInterface.addClient(c);
             call.enqueue(new Callback<User>() {
                 @Override

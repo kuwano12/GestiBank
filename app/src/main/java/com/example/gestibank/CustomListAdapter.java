@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.gestibank.model.User;
 
@@ -48,13 +47,12 @@ public class CustomListAdapter extends BaseAdapter {
             holder.agentFirstname = (TextView) convertView.findViewById(R.id.textAgentFirstname);
             holder.agentPhone = (TextView) convertView.findViewById(R.id.textAgentPhone);
             holder.agentMail = (TextView) convertView.findViewById(R.id.textAgentMail);
-            holder.agentMatr = (TextView) convertView.findViewById(R.id.textAgentMatr);
+            holder.agentMatr = (TextView) convertView.findViewById(R.id.editTextAgentMatr);
         }else{
             holder = (ViewHolder) convertView.getTag();
         }
 
         User u = this.listUser.get(position);
-        Log.e("TEST---------->", u.toString());
         holder.agentName.setText(u.getName());
         holder.agentFirstname.setText(u.getFirstname());
         holder.agentMail.setText(u.getMail());

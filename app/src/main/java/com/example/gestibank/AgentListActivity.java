@@ -38,7 +38,6 @@ public class AgentListActivity extends AppCompatActivity {
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                 if(response.isSuccessful()){
                     List<User> listUser = response.body();
-//                    Utils.showMessage("test", listUser.toString(), AgentListActivity.this);
                     final ListView listView = (ListView) findViewById(R.id.listView);
                     listView.setAdapter(new CustomListAdapter(AgentListActivity.this, listUser));
                     listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -55,7 +54,6 @@ public class AgentListActivity extends AppCompatActivity {
                     });
                 }
             }
-
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 Log.e("ERROR", t.getMessage());

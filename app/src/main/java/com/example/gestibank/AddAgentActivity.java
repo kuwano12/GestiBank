@@ -5,8 +5,10 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
@@ -15,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.gestibank.model.User;
 import com.example.gestibank.remote.APIUtils;
 import com.example.gestibank.remote.RetrofitInterface;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -52,24 +56,43 @@ public class AddAgentActivity extends AppCompatActivity {
                 return;
             }
 
-            String pass = generatePassword();
-            Utils.showMessage("test", pass, AddAgentActivity.this);
-            User c = new User(agentName.getText().toString(), agentFirstname.getText().toString(),
-                    agentPhone.getText().toString(), agentMail.getText().toString(), pass, "AGENT", "t");
-            Call<User> call = retrofitInterface.addClient(c);
-            call.enqueue(new Callback<User>() {
+            Call<List<User>> call = retrofitInterface.getAgents("AGENT");
+            call.enqueue(new Callback<List<User>>() {
                 @Override
-                public void onResponse(Call<User> call, Response<User> response) {
+                public void onResponse(Call<List<User>> call, Response<List<User>> response) {
                     if(response.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "Compte agent crée",
-                                Toast.LENGTH_LONG).show();
-                        clearText();
-                        Intent i = new Intent(getApplicationContext(), AuthActivity.class);
-                        startActivity(i);
+                       int i = response.body().size();
+                       i = i+ 1;
+                       String pass = generatePassword();
+                       User c = new User(agentName.getText().toString(),
+                               agentFirstname.getText().toString(),
+                               agentPhone.getText().toString(),
+                               agentMail.getText().toString(),
+                               pass,
+                               "AGENT",
+                               "t",
+                               "", String.valueOf(i));
+                       Call<User> call2 = retrofitInterface.addClient(c);
+                       call2.enqueue(new Callback<User>() {
+                           @Override
+                           public void onResponse(Call<User> call, Response<User> response) {
+                               if(response.isSuccessful()){
+                                   Toast.makeText(getApplicationContext(), "Compte agent crée",
+                                            Toast.LENGTH_LONG).show();
+                                   clearText();
+//                                   Intent i = new Intent(getApplicationContext(), AuthActivity.class);
+//                                   startActivity(i);
+                               }
+                           }
+                           @Override
+                           public void onFailure(Call<User> call, Throwable t) {
+                               Log.e("ERROR", t.getMessage());
+                           }
+                       });
                     }
                 }
                 @Override
-                public void onFailure(Call<User> call, Throwable t) {
+                public void onFailure(Call<List<User>> call, Throwable t) {
                     Log.e("ERROR", t.getMessage());
                 }
             });

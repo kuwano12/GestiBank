@@ -34,6 +34,26 @@ public class AuthActivity extends AppCompatActivity {
         retrofitInterface = APIUtils.getuserInterface();
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
     public void Login(View v){
         Call<User> call = retrofitInterface.login(mail.getText().toString());
         call.enqueue(new Callback<User>() {
@@ -56,7 +76,7 @@ public class AuthActivity extends AppCompatActivity {
                     } else if(u.getActivated().equals("t") && u.getRole().equals("CLIENT")){
                         Toast.makeText(getApplicationContext(), "CLIENT"
                                 , Toast.LENGTH_LONG).show();
-                    }else if(u.getActivated().equals("f")){
+                    }else if(u.getActivated().equals("w")){
                         Toast.makeText(getApplicationContext(), "Compte en attente d'activation"
                                 , Toast.LENGTH_LONG).show();
                     }

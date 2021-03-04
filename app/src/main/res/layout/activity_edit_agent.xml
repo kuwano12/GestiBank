@@ -69,15 +69,17 @@
             android:layout_height="60dp" />
 
         <Button
-            android:id="@+id/btnEditActor"
+            android:id="@+id/btnEditAgent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="editAgent"
             android:text="Modifier" />
 
         <Button
-            android:id="@+id/btnDeleteActor"
+            android:id="@+id/btnDeleteAgent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="deleteAgent"
             android:text="Supprimer" />
 
     </LinearLayout>
